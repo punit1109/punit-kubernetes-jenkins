@@ -9,7 +9,8 @@ pipeline {
         stage('Deploy to Kubernetes'){
             steps{
                 def kubeconfig = readFile('kubeconfig')
-                sh "kubectl --kubeconfig=${kubeconfig} apply -f deploy.yml.yaml"            }
+                sh "kubectl --kubeconfig=${kubeconfig} apply -f deploy.yml.yaml"
+            }
         }
     }
 }
