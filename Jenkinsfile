@@ -10,7 +10,7 @@ pipeline {
             steps{
                 script{
                     def kubeconfig = readFile('kubeconfig')
-                    sh "kubectl --kubeconfig=${kubeconfig} apply -f deploy.yml.yaml"
+                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f deploy.yml.yaml"
                 }
             }
         }
