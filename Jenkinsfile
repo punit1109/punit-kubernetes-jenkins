@@ -13,7 +13,7 @@ pipeline {
                     sh ('cd punit-kubernetes-jenkins')
                     sh ('pwd')
                     sh ('ls')
-                    sh ('kubectl apply -f  deploy.yaml')
+                    sh ('kubectl apply -f  deploy.yml')
                 }
             }
         }
