@@ -11,6 +11,8 @@ pipeline {
                 withKubeConfig([credentialsId: 'K8S', serverUrl: '']) {
                     sh ('pwd')
                     sh ('cd punit-kubernetes-jenkins')
+                    sh ('pwd')
+                    sh ('ls')
                     sh ('kubectl apply -f  deploy.yaml')
                 }
             }
