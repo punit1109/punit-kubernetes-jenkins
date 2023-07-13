@@ -14,7 +14,7 @@ pipeline {
             steps{
                 echo "${params.name}"
                 sh ('chmod +x changeValue.sh')
-                sh ('./changeValue.sh flipkart flipkart')
+                sh ('./changeValue.sh flipkart-deploy flipkart-service')
             }
         }
         // stage('Deploy to Kubernetes'){
