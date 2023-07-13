@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-pod
+  name: client-deploy-name
   labels:
-    app: client-deploy-name
+    app: nginx-pod
 spec:
   replicas: 2
   selector:
