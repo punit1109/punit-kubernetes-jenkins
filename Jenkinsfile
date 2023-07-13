@@ -13,6 +13,7 @@ pipeline {
         stage('shell script'){
             steps{
                 echo "${params.name}"
+                sh ('chmod +x changeValue.sh')
                 sh ('./changeValue.sh flipkart flipkart')
             }
         }
