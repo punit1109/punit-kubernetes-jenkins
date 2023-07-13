@@ -13,7 +13,7 @@ pipeline {
         stage('shell script'){
             steps{
                 echo "${params.name}"
-                sh ('./changeValues.sh flipkart flipkart')
+                sh ('./changeValue.sh flipkart flipkart')
             }
         }
         // stage('Deploy to Kubernetes'){
