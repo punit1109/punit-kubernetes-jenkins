@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'name', defaultValue: 'rongoku', description: '')
-        string(name: 'podname', defaultValue: 'podrongoku', description: '')
+        string(name: 'name', defaultValue: 'tarzan', description: '')
+        string(name: 'podname', defaultValue: 'pod-tarzan', description: '')
     }
     stages{
         stage('Clone repository'){
