@@ -24,6 +24,7 @@ pipeline {
             steps{
                 withKubeConfig([credentialsId: 'K8S', serverUrl: '']) {
                     sh ('kubectl apply -f deploy-test.yml')
+                    sh ('kubectl apply -f ingress-test.yml')
                 }
             }
         }
