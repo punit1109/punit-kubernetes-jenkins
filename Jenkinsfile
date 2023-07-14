@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string(name: 'name', defaultValue: 'rongoku', description: '')
-        string(name: 'name', defaultValue: 'rongoku', description: '')
+        string(name: 'podname', defaultValue: 'podrongoku', description: '')
     }
     stages{
         stage('Clone repository'){
@@ -15,17 +15,17 @@ pipeline {
                 echo "${params.name}"
                 sh ('chmod +x changeValue.sh')
                 sh """
-                    ./changeValue.sh flipkart-deploy ${params.name}
+                    ./changeValue.sh ${params.podname} ${params.name}
                 """
                 // sh ('./changeValue.sh flipkart-deploy \"${params.name}\"')
             }
         }
-        // stage('Deploy to Kubernetes'){
-        //     steps{
-        //         withKubeConfig([credentialsId: 'K8S', serverUrl: '']) {
-        //             sh ('kubectl apply -f  deploy.yml')
-        //         }
-        //     }
-        // }
+        stage('Deploy to Kubernetes'){
+            steps{
+                withKubeConfig([credentialsId: 'K8S', serverUrl: '']) {
+                    sh ('kubectl apply -f deploy-test.yml')
+                }
+            }
+        }
     }
 }
